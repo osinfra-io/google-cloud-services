@@ -24,6 +24,18 @@ variable "datadog_app_key" {
   sensitive   = true
 }
 
+variable "enabled_datadog" {
+  description = "Enable Datadog integration"
+  type        = bool
+  default     = false
+}
+
+variable "enabled_datadog_cloud_cost_management" {
+  description = "Enable Datadog cloud cost management"
+  type        = bool
+  default     = false
+}
+
 variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string

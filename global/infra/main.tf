@@ -29,13 +29,25 @@ provider "datadog" {
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
-# module "datadog" {
-#   source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.0"
+module "datadog" {
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.2"
+  count  = var.enabled_datadog ? 1 : 0
 
-#   api_key         = var.datadog_api_key
-#   is_cspm_enabled = true
-#   project         = module.project.project_id
-# }
+  api_key                      = var.datadog_api_key
+  cost_center                  = "x001"
+  enable_cloud_cost_management = var.enabled_datadog_cloud_cost_management
+  is_cspm_enabled              = true
+
+
+  labels = {
+    env        = var.environment
+    repository = "google-cloud-services"
+    platform   = "google-cloud-landing-zone"
+    team       = "platform-google-cloud-landing-zone"
+  }
+
+  project = module.project.project_id
+}
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
