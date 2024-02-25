@@ -1,0 +1,53 @@
+name: 🔩 Add or update artifact registry repository
+description: Service interface for adding or updating artifact registry repositories.
+title: 🔩 Add or update artifact registry repository
+labels:
+  - enhancement
+  - good first issue
+
+body:
+  - type: textarea
+    id: markdown-text
+    attributes:
+      label: "Developer notes:"
+      value: |
+        <!-- Do not edit this section. It is intended to provide the developer working on this issue with additional context and instructions. -->
+        [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/osinfra-io/github-terraform-codespace)
+    validations:
+      required: true
+
+  - type: input
+    id: email-address
+    attributes:
+      label: "Email address:"
+      description: How can we contact you if we need more info?
+      placeholder: user-name@osinfra.io
+    validations:
+      required: true
+
+  - type: dropdown
+    id: vpc-network
+    attributes:
+      label: "Select the VPC network:"
+      options:
+        - "standard-shared"
+      multiple: true
+    validations:
+      required: true
+
+  - type: textarea
+    id: project-id
+    attributes:
+      label: "Shared VPC service project ID(s):"
+      description: The shared VPC service project ID(s). When you use shared VPC, you designate a project as a host project and attach one or more other service projects to it.
+      placeholder: "Example: stream-team-k8s-tf79a2-sb, stream-team-k8s-tf87df-pre-prod, stream-team-k8s-tf27rd-prod"
+    validations:
+      required: false
+
+  - type: textarea
+    id: comments
+    attributes:
+      label: "Additional comments:"
+      description: Is there anything else you'd like to add to help us understand your request better?
+    validations:
+      required: false
