@@ -37,3 +37,23 @@ jobs:
         -var=billing_account=${{ secrets.BILLING_ACCOUNT }}
         -var=datadog_api_key=${{ secrets.DATADOG_API_KEY }}
         -var=datadog_app_key=${{ secrets.DATADOG_APP_KEY }}
+
+  us_east1_infra:
+    name: "Infra: us-east1"
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.9
+    if: github.actor != 'dependabot[bot]'
+    needs: global_infra
+    with:
+      checkout_ref: ${{ github.ref }}
+      environment: us-east1-production
+      github_environment: "Production Infrastructure: Regional - us-east1"
+      service_account: plt-lz-services-github@ptl-lz-terraform-tf62-prod.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/us-east1-production.tfvars
+      terraform_state_bucket: plt-lz-services-e194-prod
+      terraform_version: ${{ vars.TERRAFORM_VERSION }}
+      terraform_workspace: us-east1-production
+      working_directory: regional/infra
+      workload_identity_provider: projects/134040294660/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+    secrets:
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
