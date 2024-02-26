@@ -90,7 +90,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 resource "google_artifact_registry_repository_iam_binding" "docker_virtual_readers" {
   for_each = var.docker_repositories
 
-  location   = "US"
+  location   = "us"
   project    = local.global.project_id
   repository = google_artifact_registry_repository.docker_virtual[each.key].id
   role       = "roles/artifactregistry.reader"
@@ -100,7 +100,7 @@ resource "google_artifact_registry_repository_iam_binding" "docker_virtual_reade
 resource "google_artifact_registry_repository_iam_binding" "docker_standard_writers" {
   for_each = var.docker_repositories
 
-  location   = "US"
+  location   = "us"
   project    = local.global.project_id
   repository = google_artifact_registry_repository.docker_standard[each.key].id
   role       = "roles/artifactregistry.writer"
