@@ -31,14 +31,14 @@ data "terraform_remote_state" "global" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository
 
 # We are using the multi-region location for the Artifact Registry and managing the repositories in the
-# first location of a given region for example us-east1-prod.tfvars and europe-west1-prod.tfvars.
+# first location of a given region for example us-east1-production.tfvars.
 
 resource "google_artifact_registry_repository" "docker_standard" {
   for_each = var.docker_repositories
 
-  description   = "Registry for multi-region - ${local.artifact_registry_multi_region_location} Standard : ${each.key}"
+  description   = "Registry for multi-region - US Standard : ${each.key}"
   format        = "DOCKER"
-  location      = local.artifact_registry_multi_region_location
+  location      = "US"
   project       = local.global.project_id
   repository_id = "${each.key}-standard"
 }
@@ -46,9 +46,9 @@ resource "google_artifact_registry_repository" "docker_standard" {
 resource "google_artifact_registry_repository" "docker_remote" {
   count = var.enable_docker_remote_repository ? 1 : 0
 
-  description = "Registry for multi-region - ${local.artifact_registry_multi_region_location} Docker Hub"
+  description = "Registry for multi-region - US Docker Hub"
   format      = "DOCKER"
-  location    = local.artifact_registry_multi_region_location
+  location    = "US"
   mode        = "REMOTE_REPOSITORY"
   project     = local.global.project_id
 
@@ -65,9 +65,9 @@ resource "google_artifact_registry_repository" "docker_remote" {
 resource "google_artifact_registry_repository" "docker_virtual" {
   for_each = var.docker_repositories
 
-  description   = "Registry for multi-region - ${local.artifact_registry_multi_region_location} Virtual : ${each.key}"
+  description   = "Registry for multi-region - US Virtual : ${each.key}"
   format        = "DOCKER"
-  location      = local.artifact_registry_multi_region_location
+  location      = "US"
   mode          = "VIRTUAL_REPOSITORY"
   project       = local.global.project_id
   repository_id = "${each.key}-virtual"
@@ -93,7 +93,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 resource "google_artifact_registry_repository_iam_binding" "docker_virtual_readers" {
   for_each = var.docker_repositories
 
-  location   = local.artifact_registry_multi_region_location
+  location   = "US"
   project    = local.global.project_id
   repository = google_artifact_registry_repository.docker_virtual[each.key].id
   role       = "roles/artifactregistry.reader"
@@ -103,7 +103,7 @@ resource "google_artifact_registry_repository_iam_binding" "docker_virtual_reade
 resource "google_artifact_registry_repository_iam_binding" "docker_standard_writers" {
   for_each = var.docker_repositories
 
-  location   = local.artifact_registry_multi_region_location
+  location   = "US"
   project    = local.global.project_id
   repository = google_artifact_registry_repository.docker_standard[each.key].id
   role       = "roles/artifactregistry.writer"
