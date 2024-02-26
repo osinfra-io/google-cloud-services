@@ -21,7 +21,7 @@ data "terraform_remote_state" "global" {
 
   config = {
     bucket = var.remote_bucket
-    prefix = "google-cloud-networking"
+    prefix = "google-cloud-services"
   }
 
   workspace = "global-${var.environment}"
@@ -29,9 +29,6 @@ data "terraform_remote_state" "global" {
 
 # Google Artifact Registry Repository
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository
-
-# We are using the multi-region location for the Artifact Registry and managing the repositories in the
-# first location of a given region for example us-east1-production.tfvars.
 
 resource "google_artifact_registry_repository" "docker_standard" {
   for_each = var.docker_repositories
