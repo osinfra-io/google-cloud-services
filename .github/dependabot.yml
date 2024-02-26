@@ -15,3 +15,8 @@ updates:
     directory: global/infra
     schedule:
       interval: daily
+
+  - package-ecosystem: terraform
+    directory: regional/infra
+    schedule:
+      interval: daily
