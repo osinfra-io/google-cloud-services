@@ -64,7 +64,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 
   description   = "Registry for multi-region - US Virtual : ${each.key}"
   format        = "DOCKER"
-  location      = "US"
+  location      = "us"
   mode          = "VIRTUAL_REPOSITORY"
   project       = local.global.project_id
   repository_id = "${each.key}-virtual"
