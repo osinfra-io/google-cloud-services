@@ -1,0 +1,59 @@
+name: 🔩 Add or update artifact registry repository
+description: Service interface for adding or updating artifact registry repositories.
+title: 🔩 Add or update artifact registry repository
+labels:
+  - enhancement
+  - good first issue
+
+body:
+  - type: textarea
+    id: markdown-text
+    attributes:
+      label: "Developer notes:"
+      value: |
+        <!-- Do not edit this section. It is intended to provide the developer working on this issue with additional context and instructions. -->
+        [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/osinfra-io/github-terraform-codespace)
+    validations:
+      required: true
+
+  - type: input
+    id: email-address
+    attributes:
+      label: "Email address:"
+      description: How can we contact you if we need more info?
+      placeholder: user-name@osinfra.io
+    validations:
+      required: true
+
+  - type: textarea
+    id: team-name
+    attributes:
+      label: "Team name:"
+      description: The team name that will be using this artifact registry repository. This will be the prefix for the repository name.
+      placeholder: "Example: stream-customer-acquisition, platform-google-kubernetes"
+    validations:
+      required: false
+
+  - type: textarea
+    id: registry-readers
+    attributes:
+      label: "Artifact registry repository readers:"
+      description: A comma-separated list of email addresses that will have read access to the artifact registry repository.
+      placeholder: "Example: stream-customer-acquisition-registry-readers@osinfra.io"
+    validations:
+      required: false
+
+  - type: textarea
+    id: registry-writers
+    attributes:
+      label: "Artifact registry repository writers:"
+      description: A comma-separated list of email addresses that will have write access to the artifact registry repository.
+      placeholder: "Example: stream-customer-acquisition-registry-writers@osinfra.io"
+
+  - type: textarea
+    id: comments
+    attributes:
+      label: "Additional comments:"
+      description: Is there anything else you'd like to add to help us understand your request better?
+    validations:
+      required: false
