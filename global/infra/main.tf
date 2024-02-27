@@ -73,6 +73,8 @@ module "project" {
 
   services = [
     "artifactregistry.googleapis.com",
+    "bigquerydatatransfer.googleapis.com",
+    "bigquery.googleapis.com",
     "cloudasset.googleapis.com",
     "cloudbilling.googleapis.com",
     "cloudresourcemanager.googleapis.com",
