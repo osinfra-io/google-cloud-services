@@ -24,13 +24,13 @@ variable "datadog_app_key" {
   sensitive   = true
 }
 
-variable "enabled_datadog" {
+variable "enable_datadog" {
   description = "Enable Datadog integration"
   type        = bool
   default     = false
 }
 
-variable "enabled_datadog_cloud_cost_management" {
+variable "enable_datadog_cloud_cost_management" {
   description = "Enable Datadog cloud cost management"
   type        = bool
   default     = false
