@@ -39,18 +39,3 @@ projects:
     usage_file: regional/infra/infracost/us-east1-sandbox.yml
     terraform_var_files:
       - tfvars/us-east1-sandbox.tfvars
-  - path: regional/infra
-    name: "regional/infra: us-east4-non-production"
-    usage_file: regional/infra/infracost/us-east4-non-production.yml
-    terraform_var_files:
-      - tfvars/us-east4-non-production.tfvars
-  - path: regional/infra
-    name: "regional/infra: us-east4-production"
-    usage_file: regional/infra/infracost/us-east4-production.yml
-    terraform_var_files:
-      - tfvars/us-east4-production.tfvars
-  - path: regional/infra
-    name: "regional/infra: us-east4-sandbox"
-    usage_file: regional/infra/infracost/us-east4-sandbox.yml
-    terraform_var_files:
-      - tfvars/us-east4-sandbox.tfvars
