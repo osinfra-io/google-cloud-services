@@ -35,6 +35,7 @@ resource "google_artifact_registry_repository" "docker_standard" {
 
   description   = "Registry for multi-region - US Standard : ${each.key}"
   format        = "DOCKER"
+  labels        = local.labels
   location      = "us"
   project       = local.global.project_id
   repository_id = "${each.key}-standard"
@@ -45,6 +46,7 @@ resource "google_artifact_registry_repository" "docker_remote" {
 
   description = "Registry for multi-region - US Docker Hub"
   format      = "DOCKER"
+  labels      = local.labels
   location    = "us"
   mode        = "REMOTE_REPOSITORY"
   project     = local.global.project_id
@@ -64,6 +66,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 
   description   = "Registry for multi-region - US Virtual : ${each.key}"
   format        = "DOCKER"
+  labels        = local.labels
   location      = "us"
   mode          = "VIRTUAL_REPOSITORY"
   project       = local.global.project_id
