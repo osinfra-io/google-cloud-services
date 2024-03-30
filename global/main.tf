@@ -37,16 +37,8 @@ module "datadog" {
   cost_center                  = "x001"
   enable_cloud_cost_management = var.enable_datadog_cloud_cost_management
   is_cspm_enabled              = true
-
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-services"
-    platform   = "google-cloud-landing-zone"
-    team       = "platform-google-cloud-landing-zone"
-  }
-
-  project = module.project.project_id
+  labels                       = local.labels
+  project                      = module.project.project_id
 }
 
 # Google Project Module (osinfra.io)
@@ -61,15 +53,8 @@ module "project" {
   description                     = "services"
   environment                     = var.environment
   folder_id                       = var.folder_id
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-services"
-    platform   = "google-cloud-landing-zone"
-    team       = "platform-google-cloud-landing-zone"
-  }
-
-  prefix = "plt-lz"
+  labels                          = local.labels
+  prefix                          = "plt-lz"
 
   services = [
     "artifactregistry.googleapis.com",
