@@ -12,11 +12,11 @@ updates:
       interval: daily
 
   - package-ecosystem: terraform
-    directory: global/infra
+    directory: global
     schedule:
       interval: daily
 
   - package-ecosystem: terraform
-    directory: regional/infra
+    directory: regional
     schedule:
       interval: daily
