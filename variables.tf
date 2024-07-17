@@ -46,3 +46,9 @@ variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
 }
+
+variable "monthly_budget_amount" {
+  description = "The monthly budget amount in USD to set for the project"
+  type        = number
+  default     = 5
+}
