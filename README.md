@@ -77,6 +77,6 @@ Links to documentation and other resources required to develop and iterate in th
 | project\_number | The project number |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## 📓 Terraform Regional Documentation
+### 📓 Terraform Regional Documentation
 
 - [regional](regional/README.md)
