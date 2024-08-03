@@ -16,7 +16,7 @@ terraform {
 # Terraform Remote State Datasource
 # https://www.terraform.io/docs/language/state/remote-state-data.html
 
-data "terraform_remote_state" "global" {
+data "terraform_remote_state" "main" {
   backend = "gcs"
 
   config = {
@@ -24,7 +24,7 @@ data "terraform_remote_state" "global" {
     prefix = "google-cloud-services"
   }
 
-  workspace = "global-${var.environment}"
+  workspace = "main-${var.environment}"
 }
 
 # Google Artifact Registry Repository
@@ -40,7 +40,7 @@ resource "google_artifact_registry_repository" "docker_standard" {
   format        = "DOCKER"
   labels        = local.labels
   location      = "us"
-  project       = local.global.project_id
+  project       = local.main.project_id
   repository_id = "${each.key}-standard"
 }
 
@@ -52,7 +52,7 @@ resource "google_artifact_registry_repository" "docker_remote" {
   labels      = local.labels
   location    = "us"
   mode        = "REMOTE_REPOSITORY"
-  project     = local.global.project_id
+  project     = local.main.project_id
 
   remote_repository_config {
     description = "docker hub"
@@ -76,7 +76,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
   labels        = local.labels
   location      = "us"
   mode          = "VIRTUAL_REPOSITORY"
-  project       = local.global.project_id
+  project       = local.main.project_id
   repository_id = "${each.key}-virtual"
 
   virtual_repository_config {
@@ -101,7 +101,7 @@ resource "google_artifact_registry_repository_iam_binding" "docker_virtual_reade
   for_each = var.docker_repositories
 
   location   = "us"
-  project    = local.global.project_id
+  project    = local.main.project_id
   repository = google_artifact_registry_repository.docker_virtual[each.key].id
   role       = "roles/artifactregistry.reader"
   members    = each.value.registry_readers
@@ -111,7 +111,7 @@ resource "google_artifact_registry_repository_iam_binding" "docker_standard_writ
   for_each = var.docker_repositories
 
   location   = "us"
-  project    = local.global.project_id
+  project    = local.main.project_id
   repository = google_artifact_registry_repository.docker_standard[each.key].id
   role       = "roles/artifactregistry.writer"
   members    = each.value.registry_writers
