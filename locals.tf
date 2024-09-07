@@ -2,7 +2,7 @@
 # https://www.terraform.io/docs/language/values/locals.html
 
 locals {
-  env = var.environment == "sandbox" ? "sb" : var.environment == "non-production" ? "non-prod" : var.environment == "production" ? "prod" : "none"
+  env = var.environment == "sandbox" ? "sb" : var.environment == "non-production" ? "nonprod" : var.environment == "production" ? "prod" : "none"
 
   labels = {
     cost-center = "x001"
