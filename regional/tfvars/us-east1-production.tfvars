@@ -2,7 +2,7 @@ enable_docker_remote_repository = true
 environment                     = "production"
 
 docker_repositories = {
-  "platform-docker" = {
+  "plt-docker" = {
     registry_readers = [
       "group:platform-registry-readers@osinfra.io"
     ]

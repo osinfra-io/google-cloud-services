@@ -2,7 +2,7 @@
 # https://www.terraform.io/docs/language/values/locals.html
 
 locals {
-  main = data.terraform_remote_state.main.outputs
+  env = var.environment == "sandbox" ? "sb" : var.environment == "non-production" ? "non-prod" : var.environment == "production" ? "prod" : "none"
 
   labels = {
     cost-center = "x001"
@@ -11,4 +11,6 @@ locals {
     platform    = "google-cloud-landing-zone"
     team        = "platform-google-cloud-landing-zone"
   }
+
+  main = data.terraform_remote_state.main.outputs
 }
