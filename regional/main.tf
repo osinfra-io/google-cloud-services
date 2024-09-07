@@ -24,7 +24,7 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-services"
   }
 
-  workspace = "main-${var.environment}"
+  workspace = "main-${local.env}"
 }
 
 # Google Artifact Registry Repository
