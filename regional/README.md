@@ -9,7 +9,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.1.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.3.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
@@ -31,7 +31,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_docker_repositories"></a> [docker\_repositories](#input\_docker\_repositories) | The map of names and members for the Docker artifact registry repositories | <pre>map(object({<br>    registry_readers = optional(list(string))<br>    registry_writers = optional(list(string))<br>  }))</pre> | `{}` | no |
+| <a name="input_docker_repositories"></a> [docker\_repositories](#input\_docker\_repositories) | The map of names and members for the Docker artifact registry repositories | <pre>map(object({<br/>    registry_readers = optional(list(string))<br/>    registry_writers = optional(list(string))<br/>  }))</pre> | `{}` | no |
 | <a name="input_enable_docker_remote_repository"></a> [enable\_docker\_remote\_repository](#input\_enable\_docker\_remote\_repository) | Enable the Docker remote repository | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region for this subnetwork | `string` | n/a | yes |
