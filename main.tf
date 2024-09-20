@@ -38,7 +38,7 @@ module "datadog" {
   is_security_command_center_enabled = true
   is_cspm_enabled                    = true
   labels                             = local.labels
-  project                            = module.project.project_id
+  project                            = module.project.id
 }
 
 # Google Project Module (osinfra.io)
