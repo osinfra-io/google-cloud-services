@@ -4,10 +4,10 @@ environment                     = "production"
 docker_repositories = {
   "plt-docker" = {
     registry_readers = [
-      "group:platform-registry-readers@osinfra.io"
+      "group:plt-registry-readers@osinfra.io"
     ]
     registry_writers = [
-      "group:platform-registry-writers@osinfra.io"
+      "group:plt-registry-writers@osinfra.io"
     ]
   }
 }
