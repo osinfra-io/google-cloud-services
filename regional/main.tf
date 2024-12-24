@@ -24,7 +24,7 @@ data "terraform_remote_state" "main" {
     prefix = "google-cloud-services"
   }
 
-  workspace = "main-${var.environment}"
+  workspace = "main-${module.helpers.environment}"
 }
 
 # Google Artifact Registry Repository
@@ -38,7 +38,7 @@ resource "google_artifact_registry_repository" "docker_standard" {
 
   description   = "Registry for multi-region - US Standard : ${each.key}"
   format        = "DOCKER"
-  labels        = local.labels
+  labels        = module.helpers.labels
   location      = "us"
   project       = local.main.project_id
   repository_id = "${each.key}-standard"
@@ -49,7 +49,7 @@ resource "google_artifact_registry_repository" "docker_remote" {
 
   description = "Registry for multi-region - US Docker Hub"
   format      = "DOCKER"
-  labels      = local.labels
+  labels      = module.helpers.labels
   location    = "us"
   mode        = "REMOTE_REPOSITORY"
   project     = local.main.project_id
@@ -73,7 +73,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 
   description   = "Registry for multi-region - US Virtual : ${each.key}"
   format        = "DOCKER"
-  labels        = local.labels
+  labels        = module.helpers.labels
   location      = "us"
   mode          = "VIRTUAL_REPOSITORY"
   project       = local.main.project_id

@@ -1,6 +1,5 @@
-cis_2_2_logging_sink_project_id      = "plt-lz-audit01-tf91-prod"
-enable_datadog                       = true
-enable_datadog_cloud_cost_management = true
-environment                          = "production"
-folder_id                            = "638543714452"
-monthly_budget_amount                = 25
+datadog_enable                          = true
+datadog_enable_cloud_cost_management  = true
+project_cis_2_2_logging_sink_project_id = "plt-lz-audit01-tf91-prod"
+project_folder_id                       = "638543714452"
+project_monthly_budget_amount           = 25

@@ -1,3 +1,1 @@
-environment   = "non-production"
-region        = "us-east1"
-remote_bucket = "plt-lz-services-3bfe-nonprod"
+remote_bucket = "plt-lz-services-ae26-nonprod"

@@ -9,12 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 6.4.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.14.1 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
 
 ## Resources
 
@@ -33,8 +35,6 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_docker_repositories"></a> [docker\_repositories](#input\_docker\_repositories) | The map of names and members for the Docker artifact registry repositories | <pre>map(object({<br/>    registry_readers = optional(list(string))<br/>    registry_writers = optional(list(string))<br/>  }))</pre> | `{}` | no |
 | <a name="input_enable_docker_remote_repository"></a> [enable\_docker\_remote\_repository](#input\_enable\_docker\_remote\_repository) | Enable the Docker remote repository | `bool` | `false` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment for example: `sandbox`, `non-production`, `production` | `string` | `"sandbox"` | no |
-| <a name="input_region"></a> [region](#input\_region) | The region for this subnetwork | `string` | n/a | yes |
 | <a name="input_remote_bucket"></a> [remote\_bucket](#input\_remote\_bucket) | The remote bucket the `terraform_remote_state` data source retrieves the state from | `string` | n/a | yes |
 
 ## Outputs
