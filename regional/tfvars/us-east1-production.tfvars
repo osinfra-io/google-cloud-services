@@ -1,5 +1,4 @@
 enable_docker_remote_repository = true
-environment                     = "production"
 
 docker_repositories = {
   "plt-docker" = {
@@ -12,6 +11,4 @@ docker_repositories = {
   }
 }
 
-
-region        = "us-east1"
-remote_bucket = "plt-lz-services-e194-prod"
+remote_bucket = "plt-lz-services-53a5-prod"
