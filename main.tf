@@ -30,15 +30,13 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.0"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.2"
   count  = var.datadog_enable ? 1 : 0
 
-  api_key                            = var.datadog_api_key
-  enable_cloud_cost_management       = var.datadog_enable_cloud_cost_management
-  is_security_command_center_enabled = true
-  is_cspm_enabled                    = true
-  labels                             = module.helpers.labels
-  project                            = module.project.id
+  api_key                      = var.datadog_api_key
+  enable_cloud_cost_management = var.datadog_enable_cloud_cost_management
+  labels                       = module.helpers.labels
+  project                      = module.project.id
 }
 
 # Google Project Module (osinfra.io)
@@ -65,5 +63,6 @@ module "project" {
     "compute.googleapis.com",
     "iam.googleapis.com",
     "monitoring.googleapis.com",
+    "securitycenter.googleapis.com"
   ]
 }
