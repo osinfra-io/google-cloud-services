@@ -63,6 +63,7 @@ module "project" {
     "compute.googleapis.com",
     "iam.googleapis.com",
     "monitoring.googleapis.com",
+    "pubsub.googleapis.com",
     "securitycenter.googleapis.com"
   ]
 }
