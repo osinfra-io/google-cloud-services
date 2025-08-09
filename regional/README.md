@@ -1,4 +1,4 @@
-# Terraform Documentation
+# OpenTofu Documentation
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -16,18 +16,18 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
+| <a name="module_helpers"></a> [helpers](#module\_helpers) | github.com/osinfra-io/opentofu-core-helpers//root | v0.1.2 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_artifact_registry_repository.docker_remote](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
-| [google_artifact_registry_repository.docker_standard](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
-| [google_artifact_registry_repository.docker_virtual](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
-| [google_artifact_registry_repository_iam_binding.docker_standard_writers](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_binding) | resource |
-| [google_artifact_registry_repository_iam_binding.docker_virtual_readers](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_binding) | resource |
-| [terraform_remote_state.main](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [google_artifact_registry_repository.docker_remote](https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
+| [google_artifact_registry_repository.docker_standard](https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
+| [google_artifact_registry_repository.docker_virtual](https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
+| [google_artifact_registry_repository_iam_binding.docker_standard_writers](https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_binding) | resource |
+| [google_artifact_registry_repository_iam_binding.docker_virtual_readers](https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_binding) | resource |
+| [terraform_remote_state.main](https://search.opentofu.org/provider/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs
 

@@ -1,11 +1,11 @@
 # Required Providers
-# https://www.terraform.io/docs/language/providers/requirements.html#requiring-providers
+# https://opentofu.org/docs/language/providers/requirements#requiring-providers
 
 terraform {
   required_providers {
 
     # Google Cloud Provider
-    # https://www.terraform.io/docs/providers/google/index.html
+    # https://search.opentofu.org/provider/hashicorp/google/latest/docs
 
     google = {
       source = "hashicorp/google"
@@ -13,8 +13,8 @@ terraform {
   }
 }
 
-# Terraform Remote State Datasource
-# https://www.terraform.io/docs/language/state/remote-state-data.html
+# OpenTofu Remote State Datasource
+# https://opentofu.org/docs/language/state/remote-state-data/
 
 data "terraform_remote_state" "main" {
   backend = "gcs"
@@ -28,7 +28,7 @@ data "terraform_remote_state" "main" {
 }
 
 # Google Artifact Registry Repository
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository
 
 resource "google_artifact_registry_repository" "docker_standard" {
 
@@ -95,7 +95,7 @@ resource "google_artifact_registry_repository" "docker_virtual" {
 }
 
 # Google Artifact Registry IAM Binding
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam
 
 resource "google_artifact_registry_repository_iam_binding" "docker_virtual_readers" {
   for_each = var.docker_repositories

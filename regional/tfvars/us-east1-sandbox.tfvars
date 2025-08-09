@@ -11,4 +11,4 @@ docker_repositories = {
   }
 }
 
-remote_bucket = "plt-lz-services-4312-sb"
+remote_bucket = "plt-lz-services-0bf7-sb"

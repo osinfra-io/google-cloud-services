@@ -25,7 +25,7 @@ Our focus is on the core fundamental practice of platform engineering, Infrastru
 
 >Open Source Infrastructure (as Code) is a development model for infrastructure that focuses on open collaboration and applying relative lessons learned from software development practices that organizations can use internally at scale. - [Open Source Infrastructure (as Code)](https://www.osinfra.io)
 
-To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with Terraform documentation.
+To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with OpenTofu documentation.
 
 See the documentation for setting up a development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
 
@@ -43,18 +43,17 @@ Links to documentation and other resources required to develop and iterate in th
 
 - [artifact-registry](https://cloud.google.com/artifact-registry/docs)
 
-### 📓 Terraform Documentation
+### 📓 OpenTofu Documentation
 
 <!-- BEGIN_TF_DOCS -->
-
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.4 |
-| helpers | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
-| project | github.com/osinfra-io/terraform-google-project | v0.4.5 |
+| datadog | github.com/osinfra-io/opentofu-datadog-google-integration | v0.3.4 |
+| helpers | github.com/osinfra-io/opentofu-core-helpers//root | v0.1.2 |
+| project | github.com/osinfra-io/opentofu-google-project | v0.4.5 |
 
 #### Inputs
 
@@ -77,6 +76,6 @@ Links to documentation and other resources required to develop and iterate in th
 | project\_number | The project number |
 <!-- END_TF_DOCS -->
 
-### 📓 Terraform Regional Documentation
+### 📓 OpenTofu Regional Documentation
 
 - [regional](regional/README.md)

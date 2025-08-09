@@ -1,1 +1,1 @@
-remote_bucket = "plt-lz-services-ae26-nonprod"
+remote_bucket = "plt-lz-services-ecf2-nonprod"
