@@ -31,9 +31,6 @@ data "terraform_remote_state" "main" {
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/artifact_registry_repository
 
 resource "google_artifact_registry_repository" "docker_standard" {
-
-  # Ensure Artifact Registry Repositories are encrypted with Customer Supplied Encryption Keys (CSEK)
-  # checkov:skip=CKV_GCP_84: Customer Supplied Encryption Keys are not a requirement for all use-cases
   for_each = var.docker_repositories
 
   description   = "Registry for multi-region - US Standard : ${each.key}"
@@ -65,10 +62,6 @@ resource "google_artifact_registry_repository" "docker_remote" {
 }
 
 resource "google_artifact_registry_repository" "docker_virtual" {
-
-  # Ensure Artifact Registry Repositories are encrypted with Customer Supplied Encryption Keys (CSEK)
-  # checkov:skip=CKV_GCP_84: Customer Supplied Encryption Keys are not a requirement for all use-cases
-
   for_each = var.docker_repositories
 
   description   = "Registry for multi-region - US Virtual : ${each.key}"
