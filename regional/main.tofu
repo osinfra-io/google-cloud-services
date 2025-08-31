@@ -146,3 +146,9 @@ resource "google_artifact_registry_repository_iam_binding" "docker_standard_writ
   role       = "roles/artifactregistry.writer"
   members    = each.value.registry_writers
 }
+
+resource "null_resource" "force_apply" {
+  triggers = {
+    always_run = timestamp()
+  }
+}

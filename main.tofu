@@ -114,3 +114,9 @@ module "project" {
     "serviceusage.googleapis.com"
   ]
 }
+
+resource "null_resource" "force_apply" {
+  triggers = {
+    always_run = timestamp()
+  }
+}
