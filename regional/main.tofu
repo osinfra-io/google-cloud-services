@@ -1,61 +1,3 @@
-# Required Providers
-# https://opentofu.org/docs/language/providers/requirements#requiring-providers
-
-terraform {
-  # State and Plan Encryption
-  # https://opentofu.org/docs/language/state/encryption
-
-  # The commented out sections below demonstrate how to configure
-  # fallback encryption methods for state and plan files for bootstrapping.
-
-  encryption {
-    method "unencrypted" "migrate" {}
-
-    key_provider "gcp_kms" "default" {
-      kms_encryption_key = var.state_kms_encryption_key
-      key_length         = 32
-    }
-
-    method "aes_gcm" "default" {
-      keys = key_provider.gcp_kms.default
-    }
-
-    plan {
-      method = method.aes_gcm.default
-      # enforced = true
-
-      fallback {
-        method = method.unencrypted.migrate
-      }
-    }
-
-    remote_state_data_sources {
-      default {
-        method = method.aes_gcm.default
-      }
-    }
-
-    state {
-      method = method.aes_gcm.default
-      # enforced = true
-
-      fallback {
-        method = method.unencrypted.migrate
-      }
-    }
-  }
-
-  required_providers {
-
-    # Google Cloud Provider
-    # https://search.opentofu.org/provider/hashicorp/google/latest/docs
-
-    google = {
-      source = "hashicorp/google"
-    }
-  }
-}
-
 # OpenTofu Remote State Datasource
 # https://opentofu.org/docs/language/state/remote-state-data/
 
@@ -152,10 +94,4 @@ resource "google_artifact_registry_repository_iam_binding" "docker_standard_writ
   repository = google_artifact_registry_repository.docker_standard[each.key].id
   role       = "roles/artifactregistry.writer"
   members    = each.value.registry_writers
-}
-
-resource "null_resource" "force_apply" {
-  triggers = {
-    always_run = timestamp()
-  }
 }
